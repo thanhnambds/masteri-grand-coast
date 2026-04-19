@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masteri Grand Coast | Tuyệt Tác Bên Bờ Đại Dương</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Masteri Grand Coast - Phân khu căn hộ cao cấp tại Ocean City. Vị trí trực diện hồ Wave Park, sở hữu 180+ tiện ích đẳng cấp quốc tế. Nhận ngay bảng giá gốc và chính sách chiết khấu mới nhất năm 2026.">
+    <meta name="keywords" content="Masteri Grand Coast, Masterise Homes, Ocean City, Ocean Park 2, Bất động sản">
+    <meta name="author" content="Thanh Nam BĐS">
+
+    <!-- Open Graph / Meta cho Zalo & Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://masteri-grand-coast.vn/"> <!-- Anh thay link này bằng link web thực tế của anh -->
+    <meta property="og:title" content="Masteri Grand Coast | Tuyệt Tác Sống Bên Bờ Đại Dương">
+    <meta property="og:description" content="Khám phá không gian sống quốc tế đẳng cấp tại Ocean City. Nhận trọn bộ tài liệu & bảng giá quỹ căn ngoại giao mới nhất.">
+    <meta property="og:image" content="https://masteri-grand-coast.vn/assets/hero_bg_opt.jpg"> <!-- Link ảnh tuyệt đối giúp Zalo hiện ảnh 100% -->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateListing",
+      "name": "Masteri Grand Coast",
+      "description": "Dự án căn hộ cao cấp Masteri Grand Coast tại Ocean City",
+      "url": "https://masteri-grand-coast.vn/",
+      "image": "https://masteri-grand-coast.vn/assets/hero_bg_opt.jpg",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "VND",
+        "seller": {
+          "@type": "Person",
+          "name": "Thanh Nam BĐS"
+        }
+      }
+    }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="nav-container container">
+            <a href="#dang-ky" class="logo">
+                <img src="assets/logo.png" alt="Masterise Logo">
+                MASTERI GRAND COAST
+            </a>
+            <!-- Desktop nav -->
+            <nav class="nav" id="desktop-nav">
+                <ul class="nav">
+                    <li><a href="#tong-quan">Tổng Quan</a></li>
+                    <li><a href="#vi-tri">Vị Trí</a></li>
+                    <li><a href="#tien-ich">Tiện Ích</a></li>
+                    <li><a href="#mat-bang">Mặt Bằng</a></li>
+                    <li><a href="#chinh-sach">Chính Sách</a></li>
+                    <li><a href="#dang-ky" class="btn-solid" style="margin-left: 15px;">Đăng Ký</a></li>
+                </ul>
+            </nav>
+            <!-- Hamburger button (mobile only) -->
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- Mobile drawer -->
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="#tong-quan">Tổng Quan</a></li>
+                <li><a href="#vi-tri">Vị Trí</a></li>
+                <li><a href="#tien-ich">Tiện Ích</a></li>
+                <li><a href="#mat-bang">Mặt Bằng</a></li>
+                <li><a href="#chinh-sach">Chính Sách</a></li>
+                <li><a href="#dang-ky" class="btn-solid">Đăng Ký Ngay</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero" id="hero">
+        <div class="hero-bg" style="background-image: url('assets/hero_bg_opt.jpg');"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content form-card">
+                <h2 class="hero-cta-title reveal-up">Nhận Tài Liệu Độc Quyền</h2>
+                <p class="hero-sub-headline reveal-up delay-1">Cập nhật <strong>quỹ căn ngoại giao & Chính sách chiết khấu</strong> mới nhất T4/2026.</p>
+
+                <form class="hero-form reveal-up delay-2" id="hero-form">
+                    <input type="hidden" name="form_origin" value="Hero Section (Đầu trang)">
+                    <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" placeholder="Leave this empty">
+                    <div class="form-group">
+                        <input type="text" name="fullname" placeholder="Anh/Chị tên là..." minlength="2" maxlength="50" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" placeholder="Số Zalo nhận bảng giá..." pattern="(0|\+84)[3|5|7|8|9][0-9]{8}" maxlength="12" title="Vui lòng nhập số điện thoại Việt Nam hợp lệ (ví dụ: 0912345678)" required>
+                    </div>
+                    <button type="submit" class="btn-solid btn-full btn-shimmer"><i class="fa-solid fa-file-pdf"></i> TẢI BẢNG GIÁ CHI TIẾT (PDF)</button>
+                </form>
+
+                <div class="form-success" id="hero-success" style="display: none;">
+                    <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+                    <h3>Gửi thành công!</h3>
+                    <p>Chào anh/chị, tài liệu đã sẵn sàng. Mời anh/chị nhấn nút bên dưới để xem ngay.</p>
+                    <div class="success-actions">
+                        <a href="#pdf-link" target="_blank" rel="noopener noreferrer" class="btn-solid btn-full"><i class="fa-solid fa-file-pdf"></i> XEM BẢNG GIÁ (PDF)</a>
+                        <a href="https://zalo.me/0965325555" target="_blank" rel="noopener noreferrer" class="btn-outline btn-full"><i class="fa-solid fa-comments"></i> CHAT ZALO TƯ VẤN</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-indicator">
+                <span>Cuộn xuống</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tổng Quan -->
+    <section class="section" id="tong-quan">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h2>Tổng Quan Dự Án</h2>
+                <div class="divider"></div>
+                <p>Nơi kiến tạo chuẩn mực sống quốc tế đỉnh cao bên hồ nhân tạo lớn nhất Đông Nam Á.</p>
+            </div>
+
+            <div class="spec-stats reveal-up delay-1">
+                <div class="stat-item">
+                    <span class="stat-num"><span class="counter" data-target="7">0</span></span>
+                    <span class="stat-txt">Toà tháp</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num"><span class="counter" data-target="180">0</span>+</span>
+                    <span class="stat-txt">Tiện ích</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num"><span class="counter" data-target="5.3">0</span><small>ha</small></span>
+                    <span class="stat-txt">Cảnh quan</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">Q3/<span class="counter" data-target="2028">0</span></span>
+                    <span class="stat-txt">Bàn giao</span>
+                </div>
+            </div>
+
+            <div class="tq-layout">
+                <!-- Cột trái: Ảnh phối cảnh -->
+                <div class="tq-image reveal-left">
+                    <div class="tq-img-main">
+                        <img src="assets/tong_quan.jpg" alt="Phối cảnh Masteri Grand Coast">
+                    </div>
+                    <div class="tq-img-sub">
+                        <img src="assets/tong_quan_2.jpg" alt="Công viên nội khu Masteri">
+                    </div>
+                </div>
+
+                <!-- Cột phải: Nội dung -->
+                <div class="tq-content reveal-right">
+                    <div class="overview-details">
+                        <div class="spec-grid">
+                            <div class="spec-card">
+                                <div class="spec-icon"><i class="fa-solid fa-signature"></i></div>
+                                <div class="spec-info">
+                                    <span class="spec-label">Tên dự án</span>
+                                    <span class="spec-value">MASTERI GRAND COAST</span>
+                                </div>
+                            </div>
+                            <div class="spec-card tq-hide-mobile">
+                                <div class="spec-icon"><i class="fa-solid fa-building-shield"></i></div>
+                                <div class="spec-info">
+                                    <span class="spec-label">Chủ đầu tư</span>
+                                    <span class="spec-value">Masterise Homes</span>
+                                </div>
+                            </div>
+                            <div class="spec-card full-width">
+                                <div class="spec-icon"><i class="fa-solid fa-location-dot"></i></div>
+                                <div class="spec-info">
+                                    <span class="spec-label">Vị trí</span>
+                                    <span class="spec-value">Ocean Park 2 – Ocean City, Văn Giang, Hưng Yên</span>
+                                </div>
+                            </div>
+                            <div class="spec-card">
+                                <div class="spec-icon"><i class="fa-solid fa-expand"></i></div>
+                                <div class="spec-info">
+                                    <span class="spec-label">Quy mô</span>
+                                    <span class="spec-value">72,498 m² — 7 Toà tháp</span>
+                                </div>
+                            </div>
+                            <div class="spec-card">
+                                <div class="spec-icon"><i class="fa-solid fa-gem"></i></div>
+                                <div class="spec-info">
+                                    <span class="spec-label">Hệ tiện ích</span>
+                                    <span class="spec-value">180+ tiện ích nội khu đẳng cấp</span>
+                                </div>
+                            </div>
+                            <div class="spec-card tq-hide-mobile">
+                                <div class="spec-icon"><i class="fa-solid fa-couch"></i></div>
+                                <div class="spec-info">
+                                    <span class="spec-label">Sản phẩm</span>
+                                    <span class="spec-value">Studio, 1-4PN, Penthouse</span>
+                                </div>
+                            </div>
+                            <div class="spec-card">
+                                <div class="spec-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                                <div class="spec-info">
+                                    <span class="spec-label">Bàn giao</span>
+                                    <span class="spec-value">Dự kiến Quý 3/2028</span>
+                                </div>
+                            </div>
+                            <div class="spec-card full-width tq-hide-mobile">
+                                <div class="spec-icon"><i class="fa-solid fa-gavel"></i></div>
+                                <div class="spec-info">
+                                    <span class="spec-label">Pháp lý</span>
+                                    <span class="spec-value">Sở hữu lâu dài (Sổ hồng riêng)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vị Trí -->
+    <section class="section bg-gray" id="vi-tri">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h2>Vị Thế Độc Bản</h2>
+                <div class="divider"></div>
+                <p>Nằm giữa 2 trục đường chính San Hô & Đại Dương, kế bên phố đêm Little Hong Kong và Wonder Wave Park. Không gian sống đạt tới sự cân bằng lý tưởng: đủ cao để nhìn xa – đủ sâu để tĩnh tại.</p>
+            </div>
+
+            <ul class="feature-list horizontal-list reveal-up">
+                <li><i class="fa-solid fa-check"></i> Trực diện Royal Wave Park 18ha</li>
+                <li><i class="fa-solid fa-check"></i> Liền kề Mega Grand World, K-Town</li>
+                <li><i class="fa-solid fa-check"></i> Cách Vincom, Vinschool, Vinmec 5 phút</li>
+            </ul>
+
+            <div class="image-map-wrapper reveal-up" style="margin-top: 50px;">
+                <img src="assets/vi_tri_opt.jpg" alt="Bản đồ vị trí dự án Masteri Grand Coast" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Tiện Ích -->
+    <section class="section" id="tien-ich">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h2>Hệ Sinh Thái Tiện Ích</h2>
+                <div class="divider"></div>
+                <p>Riêng tư, đẳng cấp và đặc quyền dành cho cư dân tinh hoa</p>
+            </div>
+
+            <div class="amenity-stats reveal-up delay-1">
+                <div class="stat-item">
+                    <div class="stat-number"><span class="counter" data-target="4">0</span></div>
+                    <div class="stat-label">công viên<br>nội khu</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number"><span class="counter" data-target="180">0</span><span class="plus">+</span></div>
+                    <div class="stat-label">tiện ích<br>liên hoàn</div>
+                </div>
+            </div>
+
+            <div class="amenities-slider-wrapper reveal-up delay-2">
+                <div class="swiper amenitiesSwiper">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide">
+                            <div class="am-card">
+                                <img src="assets/am_1_opt.jpg" alt="Sảnh Cư Dân" loading="lazy">
+                                <div class="am-caption">SẢNH CƯ DÂN</div>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide">
+                            <div class="am-card">
+                                <img src="assets/am_2_opt.jpg" alt="Phòng Gym" loading="lazy">
+                                <div class="am-caption">PHÒNG GYM</div>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="swiper-slide">
+                            <div class="am-card">
+                                <img src="assets/am_3_opt.jpg" alt="Phòng Trẻ Em" loading="lazy">
+                                <div class="am-caption">PHÒNG TRẺ EM</div>
+                            </div>
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="swiper-slide">
+                            <div class="am-card">
+                                <img src="assets/am_4_opt.jpg" alt="Bể Bơi Ngoài Trời" loading="lazy">
+                                <div class="am-caption">BỂ BƠI NGOÀI TRỜI</div>
+                            </div>
+                        </div>
+                        <!-- Slide 5 -->
+                        <div class="swiper-slide">
+                            <div class="am-card">
+                                <img src="assets/am_5_opt.jpg" alt="Business Lounge" loading="lazy">
+                                <div class="am-caption">BUSINESS LOUNGE</div>
+                            </div>
+                        </div>
+                        <!-- Slide 6 -->
+                        <div class="swiper-slide">
+                            <div class="am-card">
+                                <img src="assets/am_6_opt.jpg" alt="Công Viên Liên Hoàn" loading="lazy">
+                                <div class="am-caption">CÔNG VIÊN LIÊN HOÀN</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation arrows -->
+                    <div class="swiper-button-next am-nav-next"></div>
+                    <div class="swiper-button-prev am-nav-prev"></div>
+                </div>
+                <!-- Pagination (Fraction) -->
+                <div class="swiper-pagination am-pagination"></div>
+            </div>
+         </div>
+    </section>
+
+    <!-- Mặt Bằng Tổng Thể -->
+    <section class="section bg-gray" id="mat-bang">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h2>Mặt Bằng Tổng Thể</h2>
+                <div class="divider"></div>
+                <p>Quy hoạch tổng thể 72,498 m² với 7 toà tháp, 4 công viên chủ đề và hơn 180+ tiện ích đẳng cấp bậc nhất Masteri Collection</p>
+            </div>
+            <div class="mat-bang-wrapper reveal-up delay-1">
+                <div class="mat-bang-img-container">
+                    <img src="assets/mat_bang_opt.jpg" alt="Mặt Bằng Tổng Thể Masteri Grand Coast" id="mat-bang-img" loading="lazy">
+                    <div class="mat-bang-zoom-hint">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i>
+                        <span>Nhấn để phóng to</span>
+                    </div>
+                </div>
+                <div class="mat-bang-tags reveal-up delay-2">
+                    <div class="mb-tag">
+                        <div class="mb-tag-dot" style="background:#3a9cc1;"></div>
+                        <span>Phân khu The Wave – 3 toà tháp</span>
+                    </div>
+                    <div class="mb-tag">
+                        <div class="mb-tag-dot" style="background:#e8b46a;"></div>
+                        <span>Phân khu The Sand – 4 toà tháp</span>
+                    </div>
+                    <div class="mb-tag">
+                        <div class="mb-tag-dot" style="background:#6abf7b;"></div>
+                        <span>4 Công viên chủ đề</span>
+                    </div>
+                    <div class="mb-tag">
+                        <div class="mb-tag-dot" style="background:#c39b62;"></div>
+                        <span>Cảnh quan 5,3 ha – Bể bơi Olympic / Vô cực</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox overlay -->
+    <div id="mb-lightbox" class="mb-lightbox">
+        <span class="mb-lightbox-close">&times;</span>
+        <img src="assets/mat_bang_opt.jpg" alt="Mặt Bằng Phóng To" loading="lazy">
+    </div>
+
+    <!-- Chính Sách Bán Hàng -->
+    <section class="section bg-gray" id="chinh-sach">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h2>Chính Sách Bán Hàng & Ưu Đãi</h2>
+                <div class="divider"></div>
+                <p>Khám phá các chính sách đặc biệt và tiến độ thanh toán siêu linh hoạt tại phân khu The Wave - Cơ hội tốt nhất để sở hữu ngay "Tuyệt tác nghỉ dưỡng" trong năm nay.</p>
+            </div>
+
+            <div class="policy-grid reveal-up delay-1">
+                <div class="policy-card">
+                    <img src="assets/policy_wave.jpg" alt="Chính sách bán hàng Phân khu The Wave" loading="lazy">
+                </div>
+                <div class="policy-card">
+                    <img src="assets/policy_sand.jpg" alt="Chính sách bán hàng Phân khu The Sand" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Form -->
+    <section class="section cta-section" id="dang-ky" style="background-image: url('assets/cta_bg_opt.jpg');">
+        <div class="container">
+            <div class="cta-box reveal-up">
+                <div class="cta-text">
+                    <h2>Nhận Trọn Bộ Tài Liệu & Bảng Giá Gốc</h2>
+                    <p>Cập nhật <strong>quỹ căn ngoại giao & Chính sách chiết khấu</strong> mới nhất T4/2026.</p>
+                </div>
+                <form class="cta-form" id="footer-form">
+                    <input type="hidden" name="form_origin" value="CTA Section (Cuối trang)">
+                    <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" placeholder="Leave this empty">
+                    <input type="text" name="fullname" placeholder="Anh/Chị tên là..." minlength="2" maxlength="50" required>
+                    <input type="tel" name="phone" placeholder="Số Zalo nhận bảng giá..." pattern="(0|\+84)[3|5|7|8|9][0-9]{8}" maxlength="12" title="Vui lòng nhập số điện thoại Việt Nam hợp lệ (ví dụ: 0912345678)" required>
+                    <button type="submit" class="btn-solid btn-large btn-shimmer"><i class="fa-solid fa-file-pdf"></i> TẢI BẢNG GIÁ CHI TIẾT (PDF)</button>
+                </form>
+
+                <div class="form-success" id="footer-success" style="display: none;">
+                    <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+                    <h3>Đăng ký thành công!</h3>
+                    <p>Mời anh/chị nhấn nút bên dưới để nhận tài liệu chi tiết.</p>
+                    <div class="success-actions">
+                        <a href="#pdf-link" target="_blank" rel="noopener noreferrer" class="btn-solid btn-full"><i class="fa-solid fa-file-pdf"></i> TẢI BẢNG GIÁ</a>
+                        <a href="https://zalo.me/0965325555" target="_blank" rel="noopener noreferrer" class="btn-outline btn-full"><i class="fa-brands fa-whatsapp"></i> CHAT ZALO</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-col footer-brand">
+                <img src="assets/logo_footer.png" alt="Masteri Grand Coast Logo" class="footer-logo-img">
+                <p>Nơi kiến tạo chuẩn mực sống quốc tế đỉnh cao bên hồ nhân tạo lớn nhất Đông Nam Á.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Liên Hệ</h3>
+                <p><i class="fa-solid fa-user"></i> Cố vấn dự án: Thanh Nam BĐS</p>
+                <p><i class="fa-solid fa-phone"></i> Hotline/Zalo: 0965 325 555</p>
+                <p><i class="fa-solid fa-location-dot"></i> R6 Royal City, Nguyễn Trãi, Hà Nội</p>
+            </div>
+            <div class="footer-col social-col">
+                <h3>Kết Nối</h3>
+                <div class="social-links">
+                    <a href="https://zalo.me/0965325555" target="_blank" rel="noopener noreferrer" title="Zalo"><span style="font-size: 11px; font-weight: 800; letter-spacing: 0.5px;">Zalo</span></a>
+                    <a href="https://www.facebook.com/thanh.nam.7545" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@thanhnambds123" target="_blank" rel="noopener noreferrer" title="Tiktok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Masteri Grand Coast. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Buttons -->
+    <div class="floating-contact">
+        <a href="https://zalo.me/0965325555" class="float-btn float-zalo" target="_blank" rel="noopener noreferrer">
+            <span class="zalo-text">Zalo</span>
+        </a>
+        <a href="tel:0965325555" class="float-btn float-hotline">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+        <a href="#" class="float-btn float-top" id="backToTop" aria-label="Lên đầu trang">
+            <i class="fa-solid fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <!-- Auto Popup (hiện khi cuộn 50%) -->
+    <div class="modal-overlay" id="autoPopup" style="display: none;">
+        <div class="modal-content">
+            <span class="modal-close" id="popupClose">&times;</span>
+            <h2>TƯ VẤN CHỌN CĂN ĐẸP</h2>
+            <p>Nhận quỹ căn ngoại giao tầng đẹp, view trực diện Wave Park với giá ưu đãi tốt nhất đợt 1.</p>
+            <form id="popup-form">
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Số điện thoại nhận tư vấn..." pattern="(0|\+84)[3|5|7|8|9][0-9]{8}" maxlength="12" title="Vui lòng nhập số điện thoại Việt Nam hợp lệ (ví dụ: 0912345678)" required>
+                </div>
+                <button type="submit" class="btn-solid btn-full btn-shimmer">ĐĂNG KÝ NGAY</button>
+            </form>
+            <div class="form-success" id="popup-success" style="display: none;">
+                <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+                <p>Cảm ơn anh/chị! Chuyên viên sẽ liên hệ trong ít phút.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
