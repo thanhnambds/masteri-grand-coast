@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+User-agent: facebookexternalhit
+Allow: /
+
 Sitemap: https://masterigrandcoast.netlify.app/sitemap.xml
