@@ -244,6 +244,26 @@ document.addEventListener('DOMContentLoaded', () => {
             const heroSub = formElement.parentElement.querySelector('.hero-sub-headline');
             if(heroSub) heroSub.style.display = 'none';
 
+            // --- CRM INTEGRATION ---
+            const CRM_STORAGE_KEY = 'crm_realty_data';
+            const existingData = JSON.parse(localStorage.getItem(CRM_STORAGE_KEY)) || [];
+            const newId = existingData.length > 0 ? Math.max(...existingData.map(c => c.id)) + 1 : 1;
+            
+            const newLead = {
+                id: newId,
+                name: formData.get('fullname') || 'Khách đăng ký',
+                phone: formData.get('phone') || '',
+                email: '', 
+                project: 'Grand Coast',
+                status: 'Mới',
+                note: `Đăng ký từ Landing Page Masteri Grand Coast`,
+                date: new Date().toISOString().split('T')[0]
+            };
+            
+            existingData.push(newLead);
+            localStorage.setItem(CRM_STORAGE_KEY, JSON.stringify(existingData));
+            console.log('Lead đã được lưu vào LocalStorage (Kết nối với CRM)');
+
             // Hiện Success State và set link PDF
             const successDiv = formElement.parentElement.querySelector('.form-success');
             if(successDiv) {
@@ -347,6 +367,24 @@ document.addEventListener('DOMContentLoaded', () => {
                         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                         body: params.toString()
                     });
+
+                    // --- CRM INTEGRATION ---
+                    const CRM_STORAGE_KEY = 'crm_realty_data';
+                    const existingData = JSON.parse(localStorage.getItem(CRM_STORAGE_KEY)) || [];
+                    const newId = existingData.length > 0 ? Math.max(...existingData.map(c => c.id)) + 1 : 1;
+                    const newLead = {
+                        id: newId,
+                        name: 'Khách Popup',
+                        phone: phone || '',
+                        email: '', 
+                        project: 'Grand Coast',
+                        status: 'Mới',
+                        note: `Đăng ký từ Auto Popup Masteri Grand Coast`,
+                        date: new Date().toISOString().split('T')[0]
+                    };
+                    existingData.push(newLead);
+                    localStorage.setItem(CRM_STORAGE_KEY, JSON.stringify(existingData));
+
                 } catch (err) {
                     console.error('Popup form error:', err);
                 }
@@ -360,4 +398,29 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
+    // --- FAQ ACCORDION ---
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const toggle = item.querySelector('.faq-toggle');
+        if (toggle) {
+            toggle.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                    const icon = otherItem.querySelector('i');
+                    if (icon) icon.className = 'fa-solid fa-plus';
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                    const icon = item.querySelector('i');
+                    if (icon) icon.className = 'fa-solid fa-minus';
+                }
+            });
+        }
+    });
 });

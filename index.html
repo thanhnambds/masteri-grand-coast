@@ -10,6 +10,11 @@
     <meta name="description" content="Masteri Grand Coast - Phân khu căn hộ cao cấp tại Ocean City. Vị trí trực diện hồ Wave Park, sở hữu 180+ tiện ích đẳng cấp quốc tế. Nhận ngay bảng giá gốc và chính sách chiết khấu mới nhất năm 2026.">
     <meta name="keywords" content="Masteri Grand Coast, Masterise Homes, Ocean City, Ocean Park 2, Bất động sản">
     <meta name="author" content="Thanh Nam BĐS">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="geo.region" content="VN-HY">
+    <meta name="geo.placename" content="Văn Giang">
+    <meta name="geo.position" content="20.9383;105.9472">
+    <meta name="ICBM" content="20.9383, 105.9472">
 
     <!-- Open Graph / Meta cho Zalo & Facebook -->
     <meta property="og:type" content="website">
@@ -36,23 +41,76 @@
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "RealEstateListing",
-      "name": "Masteri Grand Coast",
-      "description": "Dự án căn hộ cao cấp Masteri Grand Coast tại Ocean City",
-      "url": "https://masterigrandcoast.netlify.app/",
-      "image": "https://masterigrandcoast.netlify.app/assets/og_image.png",
-      "offers": {
-        "@type": "Offer",
-        "availability": "https://schema.org/InStock",
-        "priceCurrency": "VND",
-        "seller": {
-          "@type": "Person",
-          "name": "Thanh Nam BĐS"
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "RealEstateListing",
+        "name": "Masteri Grand Coast - Ocean City",
+        "description": "Phân khu căn hộ cao cấp nhất tại Ocean City, trực diện hồ Wave Park 18ha. Sở hữu hệ sinh Thái 180+ tiện ích đẳng cấp quốc tế.",
+        "url": "https://masterigrandcoast.netlify.app/",
+        "image": "https://masterigrandcoast.netlify.app/assets/og_image.png",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Ocean Park 2, Ocean City",
+          "addressLocality": "Văn Giang",
+          "addressRegion": "Hưng Yên",
+          "addressCountry": "VN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "20.9383",
+          "longitude": "105.9472"
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/InStock",
+          "priceCurrency": "VND",
+          "price": "3000000000",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "3000000000",
+            "priceCurrency": "VND",
+            "valueAddedTaxIncluded": "true"
+          },
+          "seller": {
+            "@type": "Person",
+            "name": "Thanh Nam BĐS",
+            "telephone": "0965325555",
+            "url": "https://zalo.me/0965325555"
+          }
         }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Vị trí dự án Masteri Grand Coast ở đâu?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dự án Masteri Grand Coast tọa lạc tại vị trí 'trái tim' của Ocean City (thuộc Ocean Park 2), Văn Giang, Hưng Yên. Đây là vị trí trực diện hồ tạo sóng Royal Wave Park 18ha và liền kề Mega Grand World."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Chủ đầu tư Masterise Homes có uy tín không?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Masterise Homes là thành viên của tập đoàn Masterise Group, nổi tiếng với các dự án hàng hiệu như Grand Marina Saigon, The Global City. Các dự án của Masterise luôn cam kết chất lượng bàn giao đạt tiêu chuẩn quốc tế và pháp lý minh bạch."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Thời gian bàn giao dự kiến của Masteri Grand Coast là khi nào?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dự án dự kiến sẽ bắt đầu bàn giao những căn hộ đầu tiên cho cư dân vào Quý 3 năm 2028 với tiêu chuẩn bàn giao cao cấp."
+            }
+          }
+        ]
       }
-    }
+    ]
     </script>
 
     <link rel="stylesheet" href="style.css">
@@ -101,7 +159,7 @@
         <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content form-card">
-                <h2 class="hero-cta-title reveal-up">Nhận Tài Liệu Độc Quyền</h2>
+                <h1 class="hero-cta-title reveal-up">Masteri Grand Coast | Tuyệt Tác Bên Bờ Đại Dương</h1>
                 <p class="hero-sub-headline reveal-up delay-1">Cập nhật <strong>quỹ căn ngoại giao & Chính sách chiết khấu</strong> mới nhất T4/2026.</p>
 
                 <form class="hero-form reveal-up delay-2" id="hero-form">
@@ -166,10 +224,10 @@
                 <!-- Cột trái: Ảnh phối cảnh -->
                 <div class="tq-image reveal-left">
                     <div class="tq-img-main">
-                        <img src="assets/tong_quan.jpg" alt="Phối cảnh Masteri Grand Coast">
+                        <img src="assets/tong_quan.jpg" alt="Phối cảnh tổng thể 7 tòa tháp Masteri Grand Coast bên hồ Wave Park">
                     </div>
                     <div class="tq-img-sub">
-                        <img src="assets/tong_quan_2.jpg" alt="Công viên nội khu Masteri">
+                        <img src="assets/tong_quan_2.jpg" alt="Không gian xanh và công viên nội khu tại dự án Masterise Homes">
                     </div>
                 </div>
 
@@ -425,6 +483,55 @@
                     <div class="success-actions">
                         <a href="#pdf-link" target="_blank" rel="noopener noreferrer" class="btn-solid btn-full"><i class="fa-solid fa-file-pdf"></i> TẢI BẢNG GIÁ</a>
                         <a href="https://zalo.me/0965325555" target="_blank" rel="noopener noreferrer" class="btn-outline btn-full"><i class="fa-brands fa-whatsapp"></i> CHAT ZALO</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq-section" id="faq">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h2>Câu Hỏi Thường Gặp</h2>
+                <div class="divider"></div>
+                <p>Giải đáp những thắc mắc phổ biến về dự án Masteri Grand Coast</p>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item reveal-up">
+                    <div class="faq-toggle">
+                        <h3>Vị trí dự án Masteri Grand Coast ở đâu?</h3>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Dự án tọa lạc tại trái tim của Ocean City (Văn Giang, Hưng Yên), sở hữu vị trí kim cương trực diện hồ tạo sóng Royal Wave Park 18ha và liền kề các tổ hợp giải trí Mega Grand World, Little Hong Kong.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal-up">
+                    <div class="faq-toggle">
+                        <h3>Chính sách thanh toán của dự án có linh hoạt không?</h3>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Masterise Homes cung cấp đa dạng phương thức thanh toán: Thanh toán tiến độ giãn, thanh toán nhanh nhận chiết khấu cao, hoặc hỗ trợ vay vốn ngân hàng lên tới 80% với lãi suất 0% trong thời gian dài.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal-up">
+                    <div class="faq-toggle">
+                        <h3>Tiêu chuẩn bàn giao căn hộ gồm những gì?</h3>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Căn hộ được bàn giao full nội thất liền tường cao cấp từ các thương hiệu hàng đầu thế giới (Hafeler, Kohler, Daikin...), hệ thống kính Low-E kịch trần giúp cách âm, cách nhiệt và tối ưu tầm nhìn.</p>
+                        </div>
                     </div>
                 </div>
             </div>
