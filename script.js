@@ -246,7 +246,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // --- CRM INTEGRATION ---
             const CRM_STORAGE_KEY = 'crm_realty_data';
-            const existingData = JSON.parse(localStorage.getItem(CRM_STORAGE_KEY)) || [];
+            let existingData = JSON.parse(localStorage.getItem(CRM_STORAGE_KEY)) || [];
+            if (!Array.isArray(existingData)) existingData = [];
+            
             const newId = existingData.length > 0 ? Math.max(...existingData.map(c => c.id)) + 1 : 1;
             
             const newLead = {
@@ -260,9 +262,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 date: new Date().toISOString().split('T')[0]
             };
             
+            console.log('--- DỮ LIỆU GỬI SANG CRM ---');
+            console.table(newLead);
+            
             existingData.push(newLead);
             localStorage.setItem(CRM_STORAGE_KEY, JSON.stringify(existingData));
-            console.log('Lead đã được lưu vào LocalStorage (Kết nối với CRM)');
+            console.log('✅ Lead đã được lưu vào LocalStorage (Key: crm_realty_data)');
 
             // Hiện Success State và set link PDF
             const successDiv = formElement.parentElement.querySelector('.form-success');
@@ -370,7 +375,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     // --- CRM INTEGRATION ---
                     const CRM_STORAGE_KEY = 'crm_realty_data';
-                    const existingData = JSON.parse(localStorage.getItem(CRM_STORAGE_KEY)) || [];
+                    let existingData = JSON.parse(localStorage.getItem(CRM_STORAGE_KEY)) || [];
+                    if (!Array.isArray(existingData)) existingData = [];
+                    
                     const newId = existingData.length > 0 ? Math.max(...existingData.map(c => c.id)) + 1 : 1;
                     const newLead = {
                         id: newId,
@@ -382,8 +389,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         note: `Đăng ký từ Auto Popup Masteri Grand Coast`,
                         date: new Date().toISOString().split('T')[0]
                     };
+                    
+                    console.log('--- DỮ LIỆU POPUP GỬI SANG CRM ---');
+                    console.table(newLead);
+                    
                     existingData.push(newLead);
                     localStorage.setItem(CRM_STORAGE_KEY, JSON.stringify(existingData));
+                    console.log('✅ Lead Popup đã được lưu vào LocalStorage');
 
                 } catch (err) {
                     console.error('Popup form error:', err);
