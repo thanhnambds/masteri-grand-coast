@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     // --- FORM DATABASE INTEGRATION (GOOGLE SHEETS) ---
     // Anh hãy thay link 'SECRET_URL' bên dưới bằng link Web App sau khi Deploy Apps Script
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxFnycpCYaWPYp9k12I_8mjM5Izc-rMWoGNFPp8Zl28Uh9VVI1tc84N1Tuo-zotm0Zw/exec';
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxCGXqYV_ARz7eHA2CjGQ86jJN9V-tNym91zzTSBKBYPV5ZkbgXW9DOM8rsAby22sM/exec';
     const PDF_LINK = 'https://drive.google.com/file/d/1q4ccXmHxmcDVb5oiYNbzJncmvSKPkqXq/view';
 
     const validatePhone = (phone) => {

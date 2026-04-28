@@ -127,6 +127,7 @@
                 <ul class="nav">
                     <li><a href="#tong-quan">Tổng Quan</a></li>
                     <li><a href="#vi-tri">Vị Trí</a></li>
+                    <li><a href="#tour-360">Tour 360°</a></li>
                     <li><a href="#tien-ich">Tiện Ích</a></li>
                     <li><a href="#mat-bang">Mặt Bằng</a></li>
                     <li><a href="#chinh-sach">Chính Sách</a></li>
@@ -146,6 +147,7 @@
             <ul>
                 <li><a href="#tong-quan">Tổng Quan</a></li>
                 <li><a href="#vi-tri">Vị Trí</a></li>
+                <li><a href="#tour-360">Tour 360°</a></li>
                 <li><a href="#tien-ich">Tiện Ích</a></li>
                 <li><a href="#mat-bang">Mặt Bằng</a></li>
                 <li><a href="#chinh-sach">Chính Sách</a></li>
@@ -164,6 +166,7 @@
 
                 <form class="hero-form reveal-up delay-2" id="hero-form">
                     <input type="hidden" name="form_origin" value="Hero Section (Đầu trang)">
+                    <input type="hidden" name="project" value="Grand Coast">
                     <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" placeholder="Leave this empty">
                     <div class="form-group">
                         <input type="text" name="fullname" placeholder="Anh/Chị tên là..." minlength="2" maxlength="50" required>
@@ -319,6 +322,41 @@
         </div>
     </section>
 
+    <!-- Tour 360° -->
+    <section class="section tour360-section" id="tour-360">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h2>Khám Phá Không Gian 360°</h2>
+                <div class="divider"></div>
+                <p>Trải nghiệm không gian sống đẳng cấp tại Masteri Grand Coast ngay trên màn hình của bạn — thực tế ảo 360° chi tiết từng góc nhỏ.</p>
+            </div>
+
+            <div class="tour360-wrapper reveal-up delay-1">
+                <div class="tour360-badge">
+                    <i class="fa-solid fa-vr-cardboard"></i>
+                    <span>Tour thực tế ảo 360°</span>
+                </div>
+                <div class="tour360-frame-container">
+                    <iframe
+                        id="kuula-tour"
+                        width="100%"
+                        height="100%"
+                        style="border:none;"
+                        allowfullscreen
+                        allow="vr,gyroscope,accelerometer,fullscreen"
+                        scrolling="no"
+                        src="https://kuula.co/share/htxHw?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1&inst=vi">
+                    </iframe>
+                </div>
+                <div class="tour360-cta">
+                    <a href="#dang-ky" class="btn-solid">
+                        <i class="fa-solid fa-calendar-check"></i> Đặt lịch tham quan thực tế
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Tiện Ích -->
     <section class="section" id="tien-ich">
         <div class="container">
@@ -470,6 +508,7 @@
                 </div>
                 <form class="cta-form" id="footer-form">
                     <input type="hidden" name="form_origin" value="CTA Section (Cuối trang)">
+                    <input type="hidden" name="project" value="Grand Coast">
                     <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" placeholder="Leave this empty">
                     <input type="text" name="fullname" placeholder="Anh/Chị tên là..." minlength="2" maxlength="50" required>
                     <input type="tel" name="phone" placeholder="Số Zalo nhận bảng giá..." pattern="(0|\+84)[3|5|7|8|9][0-9]{8}" maxlength="12" title="Vui lòng nhập số điện thoại Việt Nam hợp lệ (ví dụ: 0912345678)" required>
