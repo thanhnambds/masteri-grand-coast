@@ -269,6 +269,17 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem(CRM_STORAGE_KEY, JSON.stringify(existingData));
             console.log('✅ Lead đã được lưu vào LocalStorage (Key: crm_realty_data)');
 
+            // --- TRACKING CÔNG CỤ QUẢNG CÁO (Facebook & GTM) ---
+            if (typeof fbq === 'function') {
+                fbq('track', 'Lead');
+            }
+            if (typeof dataLayer !== 'undefined') {
+                dataLayer.push({
+                    'event': 'generate_lead',
+                    'form_origin': formData.get('form_origin') || 'Unknown'
+                });
+            }
+
             // Hiện Success State và set link PDF
             const successDiv = formElement.parentElement.querySelector('.form-success');
             if(successDiv) {
@@ -398,6 +409,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     localStorage.setItem(CRM_STORAGE_KEY, JSON.stringify(existingData));
                     console.log('✅ Lead Popup đã được lưu vào LocalStorage');
 
+                    // --- TRACKING CÔNG CỤ QUẢNG CÁO (Facebook & GTM) ---
+                    if (typeof fbq === 'function') {
+                        fbq('track', 'Lead');
+                    }
+                    if (typeof dataLayer !== 'undefined') {
+                        dataLayer.push({
+                            'event': 'generate_lead',
+                            'form_origin': 'Auto Popup'
+                        });
+                    }
+
                 } catch (err) {
                     console.error('Popup form error:', err);
                 }
@@ -435,5 +457,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }
+    });
+
+    // --- TRACKING ZALO / HOTLINE CLICKS ---
+    const trackClick = (eventType, label) => {
+        if (typeof fbq === 'function') {
+            fbq('trackCustom', eventType, { content_name: label });
+        }
+        if (typeof dataLayer !== 'undefined') {
+            dataLayer.push({
+                'event': eventType,
+                'click_label': label
+            });
+        }
+    };
+
+    document.querySelectorAll('a[href^="https://zalo.me"]').forEach(el => {
+        el.addEventListener('click', () => trackClick('Click_Zalo', 'Zalo Button'));
+    });
+
+    document.querySelectorAll('a[href^="tel:"]').forEach(el => {
+        el.addEventListener('click', () => trackClick('Click_Hotline', 'Hotline Button'));
     });
 });
