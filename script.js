@@ -224,6 +224,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
+            // --- TRACKING CÔNG CỤ QUẢNG CÁO (Facebook & GTM) ---
+            try {
+                if (typeof window.fbq === 'function') {
+                    window.fbq('track', 'Lead');
+                    console.log('✅ FB Pixel: Lead event fired');
+                }
+                if (typeof window.dataLayer !== 'undefined') {
+                    window.dataLayer.push({
+                        'event': 'generate_lead',
+                        'form_origin': formData.get('form_origin') || 'Unknown'
+                    });
+                    console.log('✅ GTM: generate_lead fired');
+                }
+            } catch (err) {
+                console.error('Tracking error:', err);
+            }
+
             await fetch(SCRIPT_URL, {
                 method: 'POST',
                 mode: 'no-cors',
@@ -268,17 +285,6 @@ document.addEventListener('DOMContentLoaded', () => {
             existingData.push(newLead);
             localStorage.setItem(CRM_STORAGE_KEY, JSON.stringify(existingData));
             console.log('✅ Lead đã được lưu vào LocalStorage (Key: crm_realty_data)');
-
-            // --- TRACKING CÔNG CỤ QUẢNG CÁO (Facebook & GTM) ---
-            if (typeof fbq === 'function') {
-                fbq('track', 'Lead');
-            }
-            if (typeof dataLayer !== 'undefined') {
-                dataLayer.push({
-                    'event': 'generate_lead',
-                    'form_origin': formData.get('form_origin') || 'Unknown'
-                });
-            }
 
             // Hiện Success State và set link PDF
             const successDiv = formElement.parentElement.querySelector('.form-success');
@@ -377,6 +383,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 params.append('phone', phone);
                 params.append('form_origin', 'Auto Popup');
 
+                // --- TRACKING CÔNG CỤ QUẢNG CÁO (Facebook & GTM) ---
+                try {
+                    if (typeof window.fbq === 'function') {
+                        window.fbq('track', 'Lead');
+                        console.log('✅ FB Pixel: Lead event fired (Popup)');
+                    }
+                    if (typeof window.dataLayer !== 'undefined') {
+                        window.dataLayer.push({
+                            'event': 'generate_lead',
+                            'form_origin': 'Auto Popup'
+                        });
+                        console.log('✅ GTM: generate_lead fired (Popup)');
+                    }
+                } catch (err) {
+                    console.error('Tracking error:', err);
+                }
+
                 try {
                     await fetch(SCRIPT_URL, {
                         method: 'POST',
@@ -408,17 +431,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     existingData.push(newLead);
                     localStorage.setItem(CRM_STORAGE_KEY, JSON.stringify(existingData));
                     console.log('✅ Lead Popup đã được lưu vào LocalStorage');
-
-                    // --- TRACKING CÔNG CỤ QUẢNG CÁO (Facebook & GTM) ---
-                    if (typeof fbq === 'function') {
-                        fbq('track', 'Lead');
-                    }
-                    if (typeof dataLayer !== 'undefined') {
-                        dataLayer.push({
-                            'event': 'generate_lead',
-                            'form_origin': 'Auto Popup'
-                        });
-                    }
 
                 } catch (err) {
                     console.error('Popup form error:', err);
@@ -461,15 +473,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- TRACKING ZALO / HOTLINE CLICKS ---
     const trackClick = (eventType, label) => {
-        if (typeof fbq === 'function') {
-            fbq('trackCustom', eventType, { content_name: label });
-        }
-        if (typeof dataLayer !== 'undefined') {
-            dataLayer.push({
-                'event': eventType,
-                'click_label': label
-            });
-        }
+        try {
+            if (typeof window.fbq === 'function') {
+                window.fbq('trackCustom', eventType, { content_name: label });
+                console.log(`✅ FB Pixel: ${eventType} fired`);
+            }
+            if (typeof window.dataLayer !== 'undefined') {
+                window.dataLayer.push({
+                    'event': eventType,
+                    'click_label': label
+                });
+            }
+        } catch (err) {}
     };
 
     document.querySelectorAll('a[href^="https://zalo.me"]').forEach(el => {
