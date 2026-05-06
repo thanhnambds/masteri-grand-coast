@@ -856,8 +856,14 @@ ul { list-style: none; }
     gap: 40px;
     margin-top: 40px;
 }
+.policy-card {
+    aspect-ratio: 1465 / 2560;
+}
 .policy-card img {
     width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
     border-radius: 20px;
     box-shadow: 0 15px 40px rgba(16,38,63,0.15);
     transition: all 0.4s ease;
@@ -1461,6 +1467,7 @@ ul { list-style: none; }
 
 @media (max-width: 768px) {
     /* === GLOBAL === */
+    body { padding-bottom: 74px; }
     .section { padding: 60px 0; }
     .section-header { margin-bottom: 35px; }
     .section-header h2 { font-size: 1.6rem; line-height: 1.3; }
@@ -1476,9 +1483,11 @@ ul { list-style: none; }
         border-radius: 20px;
         overflow: hidden;
     }
-    .hero-cta-title {
-        font-size: 1.15rem;
+    .hero-content .hero-cta-title {
+        font-size: clamp(1.35rem, 6.6vw, 1.75rem);
         letter-spacing: 0;
+        line-height: 1.12;
+        margin-bottom: 18px;
     }
     .hero-sub-headline { font-size: 0.88rem; margin-bottom: 20px; }
     .hero-form { gap: 12px; }
@@ -1502,6 +1511,13 @@ ul { list-style: none; }
     }
     .tq-image { order: -1; }
     .tq-img-sub { display: none; }
+    .reveal-up,
+    .reveal-left,
+    .reveal-right {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 
     .spec-grid {
         grid-template-columns: 1fr;
@@ -1574,9 +1590,44 @@ ul { list-style: none; }
     .footer-col h3 { font-size: 1.1rem; margin-bottom: 15px; }
 
     /* === FLOATING BUTTONS === */
-    .floating-contact { bottom: 15px; right: 15px; }
-    .float-btn { width: 48px; height: 48px; font-size: 18px; }
-    .float-top { width: 35px; height: 35px; font-size: 16px; margin-top: 0; }
+    .floating-contact {
+        left: 14px;
+        right: 14px;
+        bottom: 12px;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        z-index: 9998;
+    }
+    .float-btn {
+        width: calc((100vw - 48px) / 2);
+        max-width: 165px;
+        height: 46px;
+        border-radius: 999px;
+        font-size: 17px;
+    }
+    .float-zalo::after {
+        content: "Chat Zalo";
+        margin-left: 8px;
+        font-size: 13px;
+        font-weight: 700;
+    }
+    .float-hotline::after {
+        content: "Gọi ngay";
+        margin-left: 8px;
+        font-size: 13px;
+        font-weight: 700;
+    }
+    .float-top {
+        position: fixed;
+        right: 14px;
+        bottom: 74px;
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        font-size: 15px;
+        margin-top: 0;
+    }
     .zalo-text { font-size: 13px; }
 
     /* === FORM SUCCESS === */

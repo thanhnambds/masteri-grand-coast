@@ -313,6 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const showPopup = () => {
         if (popupShown) return;
+        if (window.matchMedia('(max-width: 768px)').matches) return;
         if (sessionStorage.getItem('popupDismissed')) return;
         autoPopup.style.display = 'flex';
         document.body.style.overflow = 'hidden';
