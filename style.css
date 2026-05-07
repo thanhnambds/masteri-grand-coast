@@ -28,6 +28,8 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden; /* Chặn scroll ngang trên mọi màn hình */
+    max-width: 100%;
 }
 
 body {
@@ -35,6 +37,7 @@ body {
     color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;
+    max-width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -238,10 +241,12 @@ ul { list-style: none; }
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 24px;
     max-width: 420px;
+    width: 100%;
     margin-top: 80px;
     margin-left: 0;
     margin-right: auto;
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
 }
 
 .hero-cta-title {
@@ -1485,28 +1490,33 @@ ul { list-style: none; }
     /* === HERO === */
     .hero { min-height: auto; height: auto; padding: 90px 0 50px; }
     .hero-content {
-        max-width: 100%;
+        max-width: calc(100% - 0px);
+        width: 100%;
         margin: 0 auto;
         padding: 25px 20px;
         border-radius: 16px;
         overflow: hidden;
+        box-sizing: border-box;
     }
     .hero-content .hero-cta-title {
-        font-size: clamp(1.2rem, 5.5vw, 1.6rem);
+        font-size: clamp(1.15rem, 5vw, 1.5rem);
         letter-spacing: 0;
-        line-height: 1.2;
+        line-height: 1.25;
         margin-bottom: 12px;
+        word-break: break-word;
     }
     .hero-sub-headline { font-size: 0.85rem; margin-bottom: 16px; }
     .hero-form { gap: 10px; }
     /* iOS: font-size >= 16px để tránh auto-zoom khi focus input */
-    .hero-form input { padding: 13px 15px; font-size: 16px; }
+    .hero-form input { padding: 13px 15px; font-size: 16px; width: 100%; box-sizing: border-box; }
     .cta-form input { font-size: 16px; }
     #popup-form input { font-size: 16px; }
     .btn-full {
         padding: 14px;
         font-size: 0.88rem;
         letter-spacing: 0.5px;
+        width: 100%;
+        box-sizing: border-box;
     }
     .scroll-indicator { display: none; }
 
