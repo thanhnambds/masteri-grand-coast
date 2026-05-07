@@ -196,13 +196,44 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     // --- FORM DATABASE INTEGRATION (GOOGLE SHEETS) ---
-    // Anh hãy thay link 'SECRET_URL' bên dưới bằng link Web App sau khi Deploy Apps Script
     const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxCGXqYV_ARz7eHA2CjGQ86jJN9V-tNym91zzTSBKBYPV5ZkbgXW9DOM8rsAby22sM/exec';
     const PDF_LINK = 'assets/bao-gia-top-can-masteri-grand-coast-studio-den-3pn.pdf';
+    // --- TELEGRAM BOT CONFIG ---
+    const TELE_TOKEN   = '8720557700:AAFkIzL3ODJBHm3QPuWgUdiGgA11nYktIKo';
+    const TELE_CHAT_ID = '1707824385';
 
     const validatePhone = (phone) => {
         const vnPhoneRegex = /^(0[3|5|7|8|9])+([0-9]{8})$/;
         return vnPhoneRegex.test(phone.replace(/\s/g, ''));
+    };
+
+    const sendTelegram = async (fullname, phone, project, origin) => {
+        try {
+            const now = new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' });
+            const msg = `🔔 <b>KHÁCH HÀNG MỚI!</b>\n` +
+                        `━━━━━━━━━━━━━━━━━━\n` +
+                        `👤 <b>Tên:</b> ${fullname}\n` +
+                        `📞 <b>SĐT:</b> <code>${phone}</code>\n` +
+                        `🏢 <b>Dự án:</b> ${project}\n` +
+                        `📍 <b>Nguồn:</b> ${origin}\n` +
+                        `⏰ <b>Thời gian:</b> ${now}\n` +
+                        `━━━━━━━━━━━━━━━━━━\n` +
+                        `<i>ThanhNamBĐS – 0965 325 555</i>`;
+
+            const res = await fetch(`https://api.telegram.org/bot${TELE_TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chat_id: TELE_CHAT_ID, text: msg, parse_mode: 'HTML' })
+            });
+            const json = await res.json();
+            if (json.ok) {
+                console.log('✅ Telegram: thông báo đã gửi thành công');
+            } else {
+                console.warn('⚠️ Telegram lỗi:', json.description);
+            }
+        } catch (teleErr) {
+            console.error('Telegram error:', teleErr);
+        }
     };
 
     const handleFormSubmit = async (formElement) => {
@@ -215,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Honeypot check
             if (formData.get('website')) {
                 console.log('Bot detected');
-                return; // Silently ignore
+                return;
             }
 
             // Client-side validation
@@ -229,43 +260,42 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang gửi...';
 
+            const fullname = formData.get('fullname') || 'Khách đăng ký';
+            const origin   = formData.get('form_origin') || 'Landing page';
+            const project  = formData.get('project') || 'Grand Coast';
+
             const params = new URLSearchParams();
             formData.forEach((value, key) => {
-                if (key !== 'website') { // Don't send honeypot field
-                    params.append(key, value);
-                }
+                if (key !== 'website') params.append(key, value);
             });
 
-            // --- TRACKING CÔNG CỤ QUẢNG CÁO (Facebook & GTM) ---
+            // --- TRACKING CÔNG CỤ QUẢNG CÁO ---
             try {
                 if (typeof window.fbq === 'function') {
                     window.fbq('track', 'Lead');
                     console.log('✅ FB Pixel: Lead event fired');
                 }
                 if (typeof window.dataLayer !== 'undefined') {
-                    window.dataLayer.push({
-                        'event': 'generate_lead',
-                        'form_origin': formData.get('form_origin') || 'Unknown'
-                    });
+                    window.dataLayer.push({ 'event': 'generate_lead', 'form_origin': origin });
                     console.log('✅ GTM: generate_lead fired');
                 }
             } catch (err) {
                 console.error('Tracking error:', err);
             }
 
-            await fetch(SCRIPT_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: params.toString()
-            });
+            // --- GỬI TELEGRAM & GOOGLE SHEETS song song ---
+            await Promise.all([
+                sendTelegram(fullname, phone, project, origin),
+                fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: params.toString()
+                }).catch(err => console.warn('Sheets sync error:', err))
+            ]);
 
-            // Sau khi gửi thành công, chuyển đổi giao diện thay vì mở tự động (tránh chặn popup trên Mobile)
+            // Chuyển đổi giao diện
             formElement.style.display = 'none';
-
-            // Tìm container chứa text tiêu đề để ẩn nếu là Hero/CTA
             const ctaText = formElement.parentElement.querySelector('.cta-text');
             if(ctaText) ctaText.style.display = 'none';
             const heroTitle = formElement.parentElement.querySelector('.hero-cta-title');
@@ -277,26 +307,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const CRM_STORAGE_KEY = 'crm_realty_data';
             let existingData = JSON.parse(localStorage.getItem(CRM_STORAGE_KEY)) || [];
             if (!Array.isArray(existingData)) existingData = [];
-            
             const newId = existingData.length > 0 ? Math.max(...existingData.map(c => c.id)) + 1 : 1;
-            
-            const newLead = {
+            existingData.push({
                 id: newId,
-                name: formData.get('fullname') || 'Khách đăng ký',
-                phone: formData.get('phone') || '',
-                email: '', 
-                project: 'Grand Coast',
+                name: fullname,
+                phone: phone || '',
+                email: '',
+                project: project,
                 status: 'Mới',
                 note: `Đăng ký từ Landing Page Masteri Grand Coast`,
                 date: new Date().toISOString().split('T')[0]
-            };
-            
-            console.log('--- DỮ LIỆU GỬI SANG CRM ---');
-            console.table(newLead);
-            
-            existingData.push(newLead);
+            });
             localStorage.setItem(CRM_STORAGE_KEY, JSON.stringify(existingData));
-            console.log('✅ Lead đã được lưu vào LocalStorage (Key: crm_realty_data)');
+            console.log('✅ Lead đã được lưu vào LocalStorage');
 
             // Hiện Success State
             const successDiv = formElement.parentElement.querySelector('.form-success');
@@ -306,7 +329,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         } catch (error) {
             console.error('Lỗi khi gửi form:', error);
-            // backup alert nếu URL chưa cấu hình hoặc lỗi mạng
             alert('Cảm ơn anh/chị. Thông tin đăng ký đã được ghi nhận vào hệ thống tạm thời!');
         } finally {
             submitBtn.disabled = false;
