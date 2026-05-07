@@ -276,7 +276,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.log('✅ FB Pixel: Lead event fired');
                 }
                 if (typeof window.dataLayer !== 'undefined') {
-                    window.dataLayer.push({ 'event': 'generate_lead', 'form_origin': origin });
+                    window.dataLayer.push({ 
+                        'event': 'generate_lead', 
+                        'form_origin': origin,
+                        'customer_name': fullname,
+                        'customer_phone': phone
+                    });
                     console.log('✅ GTM: generate_lead fired');
                 }
             } catch (err) {
@@ -419,7 +424,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (typeof window.dataLayer !== 'undefined') {
                         window.dataLayer.push({
                             'event': 'generate_lead',
-                            'form_origin': 'Auto Popup'
+                            'form_origin': 'Auto Popup',
+                            'customer_phone': phone
                         });
                         console.log('✅ GTM: generate_lead fired (Popup)');
                     }
