@@ -298,14 +298,10 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem(CRM_STORAGE_KEY, JSON.stringify(existingData));
             console.log('✅ Lead đã được lưu vào LocalStorage (Key: crm_realty_data)');
 
-            // Hiện Success State và set link PDF
+            // Hiện Success State
             const successDiv = formElement.parentElement.querySelector('.form-success');
             if(successDiv) {
                 successDiv.style.display = 'block';
-                const pdfBtn = successDiv.querySelector('a[href="#pdf-link"]');
-                if (pdfBtn) {
-                    pdfBtn.href = PDF_LINK;
-                }
             }
 
         } catch (error) {
