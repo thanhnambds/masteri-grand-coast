@@ -342,7 +342,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const showPopup = () => {
         if (popupShown) return;
-        if (window.matchMedia('(max-width: 768px)').matches) return;
         if (sessionStorage.getItem('popupDismissed')) return;
         autoPopup.style.display = 'flex';
         document.body.style.overflow = 'hidden';
@@ -356,11 +355,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     if (autoPopup) {
-        // Hiện popup khi cuộn qua 50% chiều cao trang
-        window.addEventListener('scroll', () => {
-            const scrollPct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-            if (scrollPct > 50) showPopup();
-        }, { passive: true });
+        // Hiện popup sau 8 giây (cả desktop lẫn mobile)
+        setTimeout(showPopup, 8000);
+
 
         // Đóng popup khi nhấn nút ×
         if (popupClose) popupClose.addEventListener('click', closePopup);

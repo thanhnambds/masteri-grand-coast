@@ -1192,6 +1192,11 @@ ul { list-style: none; }
 .delay-2 { transition-delay: 0.4s; }
 .delay-3 { transition-delay: 0.6s; }
 
+/* Ngăn chặn overflow nằm ngang từ các section */
+.section, .hero, .footer, .cta-section, .tour360-section {
+    overflow-x: hidden;
+}
+
 /* Responsive */
 /* Hamburger button - hidden on desktop, shown on mobile */
 .hamburger {
@@ -1539,6 +1544,9 @@ ul { list-style: none; }
         transform: none;
         transition: none;
     }
+    /* Override cụ thể hơn cho reveal-left/right để chắc chắn không bị translateX */
+    .reveal-left { transform: translateY(0) !important; }
+    .reveal-right { transform: translateY(0) !important; }
 
     .spec-grid {
         grid-template-columns: 1fr;
