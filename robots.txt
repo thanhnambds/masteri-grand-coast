@@ -4,4 +4,4 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-Sitemap: https://masterigrandcoast.netlify.app/sitemap.xml
+Sitemap: https://thanhnambds.github.io/masteri-grand-coast/sitemap.xml

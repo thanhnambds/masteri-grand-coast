@@ -17,6 +17,18 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             backToTop.classList.remove('show');
         }
+
+        // Sticky CTA Bar: hiện sau khi cuộn qua Hero, ẩn khi đến form Đăng Ký
+        const stickyCta = document.getElementById('stickyCta');
+        if (stickyCta) {
+            const dangKy = document.getElementById('dang-ky');
+            const dangKyTop = dangKy ? dangKy.getBoundingClientRect().top + window.scrollY - 200 : Infinity;
+            if (window.scrollY > 300 && window.scrollY < dangKyTop) {
+                stickyCta.classList.remove('hidden');
+            } else {
+                stickyCta.classList.add('hidden');
+            }
+        }
     });
 
     // Back to Top click logic
