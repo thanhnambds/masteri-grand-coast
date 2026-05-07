@@ -4,4 +4,4 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-Sitemap: https://thanhnambds.github.io/masteri-grand-coast/sitemap.xml
+Sitemap: https://pkd-masterigrandcoast.click/sitemap.xml
