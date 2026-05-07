@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- FORM DATABASE INTEGRATION (GOOGLE SHEETS) ---
     // Anh hãy thay link 'SECRET_URL' bên dưới bằng link Web App sau khi Deploy Apps Script
     const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxCGXqYV_ARz7eHA2CjGQ86jJN9V-tNym91zzTSBKBYPV5ZkbgXW9DOM8rsAby22sM/exec';
-    const PDF_LINK = 'https://drive.google.com/file/d/1q4ccXmHxmcDVb5oiYNbzJncmvSKPkqXq/view';
+    const PDF_LINK = 'assets/bao-gia-top-can-masteri-grand-coast-studio-den-3pn.pdf';
 
     const validatePhone = (phone) => {
         const vnPhoneRegex = /^(0[3|5|7|8|9])+([0-9]{8})$/;
