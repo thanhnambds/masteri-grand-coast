@@ -131,6 +131,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
             }
         });
+
+        // Swiper Initiation for Products
+        const productsSwiper = new Swiper('.productsSwiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: false,
+            pagination: {
+                el: '.pr-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.pr-nav-next',
+                prevEl: '.pr-nav-prev',
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                }
+            }
+        });
     }
 
     // Counter Animation Logic
