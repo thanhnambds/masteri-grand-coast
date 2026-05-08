@@ -59,14 +59,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Mặt Bằng Lightbox
+    // Image Lightbox (Mặt Bằng & Products)
     const matBangImg = document.getElementById('mat-bang-img');
     const lightbox = document.getElementById('mb-lightbox');
-    if (matBangImg && lightbox) {
-        matBangImg.parentElement.addEventListener('click', () => {
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
+    if (lightbox) {
+        const lightboxImg = lightbox.querySelector('img');
+        
+        // Master Plan Zoom
+        if (matBangImg) {
+            matBangImg.parentElement.addEventListener('click', () => {
+                if (lightboxImg) lightboxImg.src = matBangImg.src;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+
+        // Product Layouts Zoom
+        const productImages = document.querySelectorAll('.product-img-box img');
+        productImages.forEach(img => {
+            img.addEventListener('click', () => {
+                if (lightboxImg) lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
         });
+
+        // Close Lightbox
         lightbox.addEventListener('click', () => {
             lightbox.classList.remove('active');
             document.body.style.overflow = '';
