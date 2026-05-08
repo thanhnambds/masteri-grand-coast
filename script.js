@@ -510,18 +510,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const toggle = item.querySelector('.faq-toggle');
         if (toggle) {
             toggle.addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
+                const isOpen = item.classList.contains('faq-open');
                 
                 // Close all other items
                 faqItems.forEach(otherItem => {
-                    otherItem.classList.remove('active');
+                    otherItem.classList.remove('faq-open');
                     const icon = otherItem.querySelector('i');
                     if (icon) icon.className = 'fa-solid fa-plus';
                 });
 
                 // Toggle current item
-                if (!isActive) {
-                    item.classList.add('active');
+                if (!isOpen) {
+                    item.classList.add('faq-open');
                     const icon = item.querySelector('i');
                     if (icon) icon.className = 'fa-solid fa-minus';
                 }

@@ -1818,17 +1818,17 @@ ul { list-style: none; }
 }
 
 /* Active State */
-.faq-item.active {
+.faq-item.faq-open {
     background: #fff;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     border-color: var(--primary);
 }
 
-.faq-item.active .faq-toggle i {
+.faq-item.faq-open .faq-toggle i {
     transform: rotate(45deg);
 }
 
-.faq-item.active .faq-answer {
+.faq-item.faq-open .faq-answer {
     max-height: 500px; /* Large enough to fit content */
 }
 
