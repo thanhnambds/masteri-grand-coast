@@ -174,6 +174,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
+
+        // Handle Sitelink (Hash) Navigation for Products
+        if (window.location.hash && window.location.hash.startsWith('#sp-')) {
+            const targetSlide = document.querySelector(window.location.hash);
+            if (targetSlide) {
+                // Find slide index
+                const slideIndex = Array.from(targetSlide.parentElement.children).indexOf(targetSlide);
+                if (slideIndex > -1) {
+                    // Slight delay to ensure Swiper is fully initialized and layout is stable
+                    setTimeout(() => {
+                        productsSwiper.slideTo(slideIndex, 800);
+                        // Scroll to the product section smoothly
+                        const sanPhamSection = document.getElementById('san-pham');
+                        if (sanPhamSection) {
+                            sanPhamSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 500);
+                }
+            }
+        }
     }
 
     // Counter Animation Logic
