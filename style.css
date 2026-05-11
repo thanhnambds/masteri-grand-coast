@@ -1217,53 +1217,92 @@ ul { list-style: none; }
 
 /* Footer */
 .footer {
-    background: #091515; /* Footer tối màu tiệp tone */
-    color: rgba(255,255,255,0.7);
+    background: #091515;
+    color: rgba(255,255,255,0.65);
     padding: 80px 0 0 0;
 }
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 50px;
     margin-bottom: 60px;
+    align-items: start;
 }
 .footer-logo-img {
     height: 55px;
     width: auto;
-    margin-bottom: 25px;
+    margin-bottom: 18px;
     display: block;
 }
-
+.footer-brand-name {
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+.footer-brand-desc {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.55);
+}
 .footer-col h3 {
-    color: #fff;
+    color: rgba(255,255,255,0.9);
     margin-bottom: 20px;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    font-weight: 700;
 }
-.footer-col p { margin-bottom: 10px; }
-.social-links {
+.footer-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-nav li {
+    margin-bottom: 12px;
+}
+.footer-nav li a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 0.93rem;
+    transition: color 0.2s;
+}
+.footer-nav li a:hover {
+    color: var(--primary-light);
+}
+.footer-contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-contact-list li {
     display: flex;
-    gap: 15px;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+    font-size: 0.9rem;
+    line-height: 1.5;
 }
-.social-links a {
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.1);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
+.footer-contact-list li i {
+    color: var(--primary-light);
+    font-size: 0.95rem;
+    margin-top: 2px;
+    flex-shrink: 0;
 }
-.social-links a:hover {
-    background: var(--primary);
-    transform: translateY(-3px);
+.footer-contact-list li a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.footer-contact-list li a:hover {
+    color: var(--primary-light);
 }
 .footer-bottom {
-    background: #060e18;
+    background: rgba(0,0,0,0.3);
+    border-top: 1px solid rgba(255,255,255,0.07);
     padding: 20px 0;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.4);
 }
 
 /* Animations */
