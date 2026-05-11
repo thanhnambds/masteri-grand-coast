@@ -1832,6 +1832,113 @@ ul { list-style: none; }
     max-height: 500px; /* Large enough to fit content */
 }
 
+/* Cashflow Section */
+.cashflow-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+}
+.cashflow-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+.cf-badge {
+    display: inline-block;
+    background: var(--primary-light);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.cashflow-header h3 {
+    color: var(--primary-dark);
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+.cf-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+.cf-card {
+    background: #f9f9f9;
+    border-radius: 15px;
+    padding: 30px;
+    border: 1px solid #eee;
+    transition: transform 0.3s ease;
+}
+.cf-card.highlight {
+    background: linear-gradient(to bottom right, #f2fcfc, #e0f2f1);
+    border-color: var(--primary-light);
+    position: relative;
+    box-shadow: 0 10px 20px rgba(72,144,138,0.1);
+}
+.cf-card:hover {
+    transform: translateY(-5px);
+}
+.cf-card-header {
+    margin-bottom: 20px;
+}
+.cf-card-header h4 {
+    color: var(--secondary);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+.cf-discount {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: #d9534f;
+    background: rgba(217,83,79,0.1);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+.cf-price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-family: 'Outfit', sans-serif;
+}
+.cf-price span {
+    font-size: 1rem;
+    color: #666;
+}
+.cf-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.cf-details li {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: #444;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+.cf-details li i {
+    color: var(--primary-light);
+    margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+    .cf-cards {
+        grid-template-columns: 1fr;
+    }
+    .cashflow-wrapper {
+        padding: 20px;
+    }
+}
+
 /* ============================================================
    STICKY MOBILE CTA BAR (Thanh CTA dính dưới cùng - Mobile)
    ============================================================ */
