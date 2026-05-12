@@ -202,10 +202,12 @@ ul { list-style: none; }
 .hero {
     position: relative;
     height: 100vh;
+    height: 100svh;
     min-height: 700px;
     display: flex;
     align-items: center;
     width: 100%;
+    overflow: hidden;
 }
 
 .hero-bg {
